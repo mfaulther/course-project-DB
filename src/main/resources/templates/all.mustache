@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All students</title>
+</head>
+<body>
+
+
+
+<table border="|">
+    <tr>
+        <th> Id </th>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Birth Date </th>
+    </tr>
+
+    {{#students}}
+        <tr>
+            <td> {{id}} </td>
+            <td> {{firstName}} </td>
+            <td> {{lastName}} </td>
+            <td> {{birthDate}} </td>
+        </tr>
+    {{/students}}
+</table>
+
+
+<p>Добавить студента</p>
+
+
+<form action="/students/add" method="post">
+
+    <label for="firstName"> Имя </label>
+    <input type="text" name="firstName">
+    <label for="lastName"> Фамилия </label>
+    <input type="text" name="lastName">
+    <label for="birthDate"> Дата Рождения </label>
+    <input type="text" name="birthDate">
+    <input type="submit" value="Добавить">
+
+
+</form>
+
+
+</body>
+</html>
