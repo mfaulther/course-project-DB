@@ -1,34 +1,46 @@
 package org.example.courseproject.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonView;
+import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
 public class Student {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    @Column(name = "student_id")
+    private Long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "birth_date")
     private String birthDate;
 
+    @ManyToOne
+    @JoinColumn(name = "gr_id")
+    @JsonView()
+    private Group group;
+
     public Student() {
+
     }
 
-    public Student(String firstName, String lastName, String birthDate) {
+    public Student(String firstName, String lastName, String birthDate, Group group) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
+        this.group = group;
+
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,5 +66,13 @@ public class Student {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

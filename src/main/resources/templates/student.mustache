@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Student </title>
+</head>
+<body>
+
+<a href="/students/all"> Back to all students</a>
+
+<table border="0">
+
+    {{#student}}
+    <tr>
+        <td>Id</td>
+        <td>: </td>
+        <td>{{id}}</td>
+    </tr>
+
+    <tr>
+        <td>Name</td>
+        <td>: </td>
+        <td>{{firstName}} {{lastName}}</td>
+    </tr>
+    {{/student}}
+
+</table>
+
+
+<a href="/students/{id}/edit">Edit</a> | <a href="/students/{id}/delete"> Delete </a>
+
+
+
+
+</body>
+</html>
